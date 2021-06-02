@@ -21,7 +21,7 @@ RUN apt-get update && \
     apt-get -y install git
 #cloning the repository into the container
 RUN mkdir -p /u01
-COPY ./c3m-api-automation-cucumber /home/u01
+COPY . /home/u01
 
 #setting the work directory
 WORKDIR /home/u01/c3m-api-automation-cucumber
