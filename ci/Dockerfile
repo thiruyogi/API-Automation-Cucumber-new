@@ -20,9 +20,9 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get -y install git
 #cloning the repository into the container
-RUN mkdir /home/Automation && \
-    cd /home/Automation && \
-    git clone https://github.com/thiruyogi/API-Automation-Cucumber-new.git
+RUN mkdir -p /u01
+COPY ./c3m-api-automation-cucumber /home/u01
+
 #setting the work directory
-WORKDIR /home/Automation/API-Automation-Cucumber-new
+WORKDIR /home/u01/c3m-api-automation-cucumber
 RUN mvn clean install
