@@ -10,6 +10,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
+import java.io.FileNotFoundException;
+
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
@@ -23,7 +25,7 @@ public class AccountGroupsSteps extends TestBase {
 
 	
 	@Before
-	public void setup() {
+	public void setup() throws FileNotFoundException {
 		init();
 	}
 

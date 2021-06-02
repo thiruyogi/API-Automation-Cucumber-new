@@ -16,10 +16,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
-					<!-- Suite testng xml file to consider for test execution -->
-					<suiteXmlFiles>
-						<suiteXmlFile>src\test\resources\Runner\testng.xml</suiteXmlFile>
-					</suiteXmlFiles>
+					<includes>
+						<include>RunnerCuke.java</include>
+					</includes>
 				</configuration>
 			</plugin>
 			<!-- Compiler plugin configures the java version to be usedfor compiling

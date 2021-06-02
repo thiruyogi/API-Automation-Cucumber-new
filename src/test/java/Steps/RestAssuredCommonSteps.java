@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matchers;
 
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -15,7 +16,7 @@ public class RestAssuredCommonSteps extends TestBase {
 
 
     @Before
-    public void setup() {
+    public void setup() throws FileNotFoundException {
         init();
     }
 

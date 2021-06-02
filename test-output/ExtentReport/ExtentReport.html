@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">C3M API Automation Extent Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">May 18, 2021 11:38:13 AM</span></a>
+<a href="#"><span class="badge badge-primary">Jun 1, 2021 04:29:19 PM</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
@@ -66,7 +71,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -74,25 +79,25 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Account Groups</p>
             <p class="text-sm">
-              <span>11:38:14 AM</span> / <span>00:00:22:760</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>16:29:20 PM</span> / <span>00:00:03:667</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Account Groups</h5>
-<span class='badge badge-success'>05.18.2021 11:38:14</span>
-<span class='badge badge-danger'>05.18.2021 11:38:36</span>
-<span class='badge badge-default'>00:00:22:760</span>
+<h5 class="test-status text-fail">Account Groups</h5>
+<span class='badge badge-success'>06.01.2021 16:29:20</span>
+<span class='badge badge-danger'>06.01.2021 16:29:24</span>
+<span class='badge badge-default'>00:00:03:667</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 </div>
 <div class="m-t-10 m-l-5"> QA Team wants to verify the CRUD Operations in Account Groups</div>
@@ -102,37 +107,48 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Validate account group creation for all cloud providers with valid data</div>
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>Validate account group creation for all cloud providers with valid data</div>
       </div>
     </div>
-        <div class="scenario_outline collapse">
+        <div class="scenario_outline ">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>Validate account group creation for all cloud providers with valid data</div>
+                  <div class="node" id="3"><span class="badge log fail-bg mr-2">Fail</span>Validate account group creation for all cloud providers with valid data</div>
                 </div>
               </div>
-              <div class="card-body mt-3 collapse">
+              <div class="card-body mt-3 ">
                   <div class="step pass-bg">
                     <span>Given User creates account group providing cloud type as "AWS" account group name as "Test AWS Group" description as "Test Automation Group1" account names as "fling-m" "fling-n" "fling-s"</span>
       <div>
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step fail-bg">
                     <span>Then verify the status is 200</span>
       <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: expected [200] but found [302]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:907)
+	at org.testng.Assert.assertEquals(Assert.java:917)
+	at test.java.Steps.AccountGroupsSteps.verify_the_status_is(AccountGroupsSteps.java:38)
+	at ?.verify the status is 200(file:///D:/Automation/c3m-api-automation-cucumber/src/test/resources/Features/AccountGroups.feature:6)
+</textarea>
+      
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step skip-bg">
                     <span>And get the list of account groups providing cloud type as "AWS" account group name as "Test AWS Group"</span>
-      <div>
+      <div>Step skipped
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step skip-bg">
                     <span>And response includes the following in any order</span>
       <div><table class='markup-table table '><tr><td>accountGroups[0].groupName</td><td>Test AWS Group</td></tr><tr><td>accountGroups[0].numCloudAccounts</td><td>3</td></tr><tr><td>accountGroups[0].cloudType</td><td>AWS</td></tr></table>
       </div>
-      <div>
+      <div>Step skipped
       </div>
                   </div>
               </div>
@@ -140,30 +156,41 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="11"><span class="badge log pass-bg mr-2">Pass</span>Validate account group creation for all cloud providers with valid data</div>
+                  <div class="node" id="11"><span class="badge log fail-bg mr-2">Fail</span>Validate account group creation for all cloud providers with valid data</div>
                 </div>
               </div>
-              <div class="card-body mt-3 collapse">
+              <div class="card-body mt-3 ">
                   <div class="step pass-bg">
                     <span>Given User creates account group providing cloud type as "GCP" account group name as "Test GCP Group" description as "Test Automation Group2" account names as "mohan-test-gcp-project" "c3m-demo-2" "c3m-demo-1"</span>
       <div>
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step fail-bg">
                     <span>Then verify the status is 200</span>
       <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: expected [200] but found [302]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:907)
+	at org.testng.Assert.assertEquals(Assert.java:917)
+	at test.java.Steps.AccountGroupsSteps.verify_the_status_is(AccountGroupsSteps.java:38)
+	at ?.verify the status is 200(file:///D:/Automation/c3m-api-automation-cucumber/src/test/resources/Features/AccountGroups.feature:6)
+</textarea>
+      
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step skip-bg">
                     <span>And get the list of account groups providing cloud type as "GCP" account group name as "Test GCP Group"</span>
-      <div>
+      <div>Step skipped
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step skip-bg">
                     <span>And response includes the following in any order</span>
       <div><table class='markup-table table '><tr><td>accountGroups[0].groupName</td><td>Test GCP Group</td></tr><tr><td>accountGroups[0].numCloudAccounts</td><td>3</td></tr><tr><td>accountGroups[0].cloudType</td><td>GCP</td></tr></table>
       </div>
-      <div>
+      <div>Step skipped
       </div>
                   </div>
               </div>
@@ -171,30 +198,41 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="19"><span class="badge log pass-bg mr-2">Pass</span>Validate account group creation for all cloud providers with valid data</div>
+                  <div class="node" id="19"><span class="badge log fail-bg mr-2">Fail</span>Validate account group creation for all cloud providers with valid data</div>
                 </div>
               </div>
-              <div class="card-body mt-3 collapse">
+              <div class="card-body mt-3 ">
                   <div class="step pass-bg">
                     <span>Given User creates account group providing cloud type as "AZURE" account group name as "Test Azu Group" description as "Test Automation Group3" account names as "azure-01" "azure-02" "azure-03"</span>
       <div>
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step fail-bg">
                     <span>Then verify the status is 200</span>
       <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: expected [200] but found [302]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:907)
+	at org.testng.Assert.assertEquals(Assert.java:917)
+	at test.java.Steps.AccountGroupsSteps.verify_the_status_is(AccountGroupsSteps.java:38)
+	at ?.verify the status is 200(file:///D:/Automation/c3m-api-automation-cucumber/src/test/resources/Features/AccountGroups.feature:6)
+</textarea>
+      
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step skip-bg">
                     <span>And get the list of account groups providing cloud type as "AZURE" account group name as "Test Azu Group"</span>
-      <div>
+      <div>Step skipped
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step skip-bg">
                     <span>And response includes the following in any order</span>
       <div><table class='markup-table table '><tr><td>accountGroups[0].groupName</td><td>Test Azu Group</td></tr><tr><td>accountGroups[0].numCloudAccounts</td><td>3</td></tr><tr><td>accountGroups[0].cloudType</td><td>AZURE</td></tr></table>
       </div>
-      <div>
+      <div>Step skipped
       </div>
                   </div>
               </div>
@@ -204,10 +242,10 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="27"><span class="badge log pass-bg mr-2">Pass</span>Validate error message when account group created with duplicate name</div>
+        <div class="node" id="27"><span class="badge log fail-bg mr-2">Fail</span>Validate error message when account group created with duplicate name</div>
       </div>
     </div>
-        <div class="collapse">
+        <div class="">
           <div class="card-body">
               <div class="step pass-bg" title="test.java.Steps.AccountGroupsSteps.user_creates_account_group_providing_cloud_type_as_account_group_name_as_description_as_account_names_as(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
                 <span>Given User creates account group providing cloud type as "AWS" account group name as "Test Duplicate Group" description as "Test Duplicate Group" account names as "fling-t" "fling-n" "fling-s"</span>
@@ -219,14 +257,25 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="test.java.Steps.AccountGroupsSteps.verify_the_status_is(int)">
+              <div class="step fail-bg" title="test.java.Steps.AccountGroupsSteps.verify_the_status_is(int)">
                 <span>Then verify the status is 422</span>
       <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: expected [422] but found [302]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:907)
+	at org.testng.Assert.assertEquals(Assert.java:917)
+	at test.java.Steps.AccountGroupsSteps.verify_the_status_is(AccountGroupsSteps.java:38)
+	at ?.verify the status is 422(file:///D:/Automation/c3m-api-automation-cucumber/src/test/resources/Features/AccountGroups.feature:23)
+</textarea>
+      
       </div>
               </div>
-              <div class="step pass-bg" title="test.java.Steps.AccountGroupsSteps.verify_the_error_message_is(java.lang.String)">
+              <div class="step skip-bg" title="test.java.Steps.AccountGroupsSteps.verify_the_error_message_is(java.lang.String)">
                 <span>Then verify the error message is "Failed to add account group with name Test Duplicate Group. Account group already exists."</span>
-      <div>
+      <div>Step skipped
       </div>
               </div>
           </div>
@@ -244,30 +293,112 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="container-fluid p-4 view dashboard-view">
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>16:29:22 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='7'>Then verify the status is 200</a>
+<div class="">
+<span class="badge badge-default">Account Groups.Validate account group creation for all cloud providers with valid data.Then verify the status is 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>16:29:23 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='15'>Then verify the status is 200</a>
+<div class="">
+<span class="badge badge-default">Account Groups.Validate account group creation for all cloud providers with valid data.Then verify the status is 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>16:29:23 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='23'>Then verify the status is 200</a>
+<div class="">
+<span class="badge badge-default">Account Groups.Validate account group creation for all cloud providers with valid data.Then verify the status is 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>16:29:24 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='32'>Then verify the status is 422</a>
+<div class="">
+<span class="badge badge-default">Account Groups.Validate error message when account group created with duplicate name.Then verify the status is 422</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
 <div class="row">
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>May 18, 2021 11:38:13 AM</h3>
+<h3>Jun 1, 2021 04:29:19 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>May 18, 2021 11:38:36 AM</h3>
+<h3>Jun 1, 2021 04:29:24 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -283,12 +414,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>1</b> features passed
+<div><small data-tooltip='0%'>
+<b>0</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> features failed,
+<small data-tooltip='100%'><b>1</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -306,9 +437,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>4</b> scenarios passed</small></div>
+<div><small data-tooltip='0%'><b>0</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> scenarios failed,
+<small data-tooltip='100%'><b>4</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -326,10 +457,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>16</b> steps passed</small></div>
+<div><small data-tooltip='31%'><b>5</b> steps passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> steps failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='25%'><b>4</b> steps failed,
+<b>7</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -345,7 +476,7 @@
 </div></div>
 <script>
 var timeline = {
-"Account Groups":22.76
+"Account Groups":3.667
 };
 </script>
 <div class="row">
@@ -354,21 +485,21 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 1,
-failParent: 0,
+passParent: 0,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 4,
-failChild: 0,
+passChild: 0,
+failChild: 4,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 16,
-failGrandChild: 0,
+passGrandChild: 5,
+failGrandChild: 4,
 warningGrandChild: 0,
-skipGrandChild: 0,
+skipGrandChild: 7,
 infoGrandChild: 0,
 eventsCount: 5,
 };

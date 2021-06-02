@@ -31,6 +31,7 @@ public class AccountGroupsAPI extends TestBase {
                 .header("Authorization",
                         "Bearer " + config.getProperty("validAccessKey")).contentType("application/json")
                 .body(accountGroup)
+				.urlEncodingEnabled(false)
                 .post("/account-groups");
         if(response.statusCode()==200) {
         	groupsAdded.add(cloudType+"##"+groupName);
