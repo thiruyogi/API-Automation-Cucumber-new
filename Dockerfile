@@ -24,5 +24,5 @@ RUN mkdir -p /u01
 COPY . /home/u01
 
 #setting the work directory
-WORKDIR /home/u01/c3m-api-automation-cucumber
+WORKDIR /home/u01
 RUN mvn clean install
